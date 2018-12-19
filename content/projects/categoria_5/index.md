@@ -1,7 +1,7 @@
 ---
 cover: "./cítrica.jpg"
 date: "2017-12-01"
-title: "Vídeos"
+title: "Videos"
 areas:
     - Animações
     - Rotoscopia

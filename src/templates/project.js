@@ -86,8 +86,9 @@ const Project = ({
         <InnerWrapper>
           <VideoWrapper>
             <p>
-              Lyric Video da música Goodbye - Lysergic Thoughts (2017). Stop motion em
-              massinha, criação, storyboard, animação e composição final
+              Lyric Video da música Goodbye - Lysergic Thoughts (2017). Stop
+              motion em massinha, criação, storyboard, animação e composição
+              final
             </p>
             <iframe
               title="goodbye"
@@ -99,8 +100,8 @@ const Project = ({
               allowFullscreen
             />
             <p>
-              Realização do evento “CineRecreio” oficinas de animação para o CEVAC
-              (Centro de Valorização da Criança) da cidade de Bauru (2017)
+              Realização do evento “CineRecreio” oficinas de animação para o
+              CEVAC (Centro de Valorização da Criança) da cidade de Bauru (2017)
             </p>
             <iframe
               title="cinerecreio"
@@ -111,9 +112,7 @@ const Project = ({
               allow="autoplay; encrypted-media"
               allowFullscreen
             />
-            <p>
-              Amanara (2016). Roteiro e Captação de Som
-            </p>
+            <p>Amanara (2016). Roteiro e Captação de Som</p>
             <iframe
               title="amanara"
               width="1000"
@@ -123,9 +122,7 @@ const Project = ({
               allow="autoplay; encrypted-media"
               allowFullscreen
             />
-            <p>
-              Amanara (2016). Rotoscopia feita no photoshop
-            </p>
+            <p>Amanara (2016). Rotoscopia feita no photoshop</p>
             <iframe
               title="amanara-rotoscopia"
               width="1000"
@@ -135,9 +132,7 @@ const Project = ({
               allow="autoplay; encrypted-media"
               allowFullscreen
             />
-            <p>
-              Cítrica (2017). Captação de áudio e câmera adicional
-            </p>
+            <p>Cítrica (2017). Captação de áudio e câmera adicional</p>
             <iframe
               title="citrica"
               src="https://player.vimeo.com/video/208545785"
@@ -148,9 +143,7 @@ const Project = ({
               mozallowfullscreen
               allowFullscreen
             />
-            <p>
-              Documentário A Terra é Nossa! (2015). Operação de câmera
-            </p>
+            <p>Documentário A Terra é Nossa! (2015). Operação de câmera</p>
             <iframe
               title="terranossa"
               width="1000"
@@ -175,7 +168,7 @@ const Project = ({
         <ProjectPagination next={next} prev={prev} />
       </OuterWrapper>
     </Layout>
-    );
+  );
 };
 
 export default Project;
@@ -200,45 +193,45 @@ Project.defaultProps = {
 };
 
 export const pageQuery = graphql`
-query ProjectPostBySlug(
-  $slug: String!
-  $absolutePathRegex: String!
-  $absolutePathCover: String!
-) {
-  images: allFile(
-    filter: {
-      absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }
-      extension: { eq: "jpg" }
-    }
+  query ProjectPostBySlug(
+    $slug: String!
+    $absolutePathRegex: String!
+    $absolutePathCover: String!
   ) {
-    edges {
-      node {
-        childImageSharp {
-          fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+    images: allFile(
+      filter: {
+        absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }
+        extension: { eq: "jpg" }
+      }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
           }
         }
       }
     }
-  }
-  project: markdownRemark(fields: { slug: { eq: $slug } }) {
-    html
-    excerpt
-    frontmatter {
-      cover {
-        childImageSharp {
-          fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-          resize(width: 800) {
-            src
+    project: markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      excerpt
+      frontmatter {
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+            resize(width: 800) {
+              src
+            }
           }
         }
+        date(formatString: "DD.MM.YYYY")
+        title
+        areas
       }
-      date(formatString: "DD.MM.YYYY")
-      title
-      areas
     }
   }
-}
 `;
