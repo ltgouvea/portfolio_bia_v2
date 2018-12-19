@@ -49,8 +49,8 @@ const Index = ({
           />
         ))}
       </Grid>
-      {/* <ContactForm/> */}
     </Content>
+    <ContactForm></ContactForm>
   </Layout>
 );
 

@@ -1,5 +1,5 @@
 ---
-cover: "./cítrica.jpg"
+cover: "./doc2.jpg"
 date: "2017-12-01"
 title: "Videos"
 areas:

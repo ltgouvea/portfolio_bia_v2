@@ -69,7 +69,6 @@ const Project = ({
   }
 
   const project = postNode.frontmatter;
-  console.log(project);
   return (
     <Layout>
       <Helmet title={`${project.title} | ${config.siteTitle}`} />
