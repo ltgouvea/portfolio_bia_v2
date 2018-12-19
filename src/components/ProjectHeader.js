@@ -92,7 +92,7 @@ const ProjectHeader = ({ avatar, name, title, date, areas, text }) => (
       </Back>
       <Details>
         <h1>{title}</h1>
-        <p>{date}</p>
+        {/* <p>{date}</p> */}
         <div>
           {areas.map(area => (
             <span key={area}>{area}</span>

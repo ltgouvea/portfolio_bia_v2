@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'react-emotion';
 
-import { Card, Header, Layout } from 'components';
+import { Card, Header, Layout, ContactForm } from '../components';
 import config from '../../config/site';
 
 const Grid = styled.div`
@@ -49,6 +49,7 @@ const Index = ({
           />
         ))}
       </Grid>
+      {/* <ContactForm/> */}
     </Content>
   </Layout>
 );

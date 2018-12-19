@@ -9,20 +9,18 @@ const Content = styled.p`
 
 const Footer = () => (
   <Content>
-    &copy; 2018 by Gatsby Starter Portfolio - Emilia. Pictures by{' '}
-    <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">
-      Unsplash
-    </a>
-    . Design by{' '}
+    &copy; 2018 Template GatsbyJS Emilia. Design por{' '}
     <a href="https://www.lekoarts.de" target="_blank" rel="noopener noreferrer">
       LekoArts
     </a>
     .<br />
-    Have a look at the{' '}
     <a href="https://github.com/LekoArts/gatsby-starter-portfolio-emilia" target="_blank" rel="noopener noreferrer">
-      Github repository
+      Github do tema.
     </a>
-    !
+    <br />
+    <a href="https://github.com/ltgouvea" target="_blank" rel="noopener noreferrer">
+      Adaptado por Lucas Gouvêa
+    </a>
   </Content>
 );
 

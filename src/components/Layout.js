@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { injectGlobal } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 
-import { SEO, Footer } from 'components';
+import { SEO, Footer } from '.';
 import theme from '../../config/theme';
 
 injectGlobal`

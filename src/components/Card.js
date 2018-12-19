@@ -116,7 +116,7 @@ const Card = ({ path, cover, date, areas, title, slug }) => (
         <Img sizes={cover} />
       </Cover>
       <Header>
-        <DateWrapper>{date}</DateWrapper>
+        {/* <DateWrapper>{date}</DateWrapper> */}
         <Areas>
           {areas.map(area => (
             <AreaItem key={area}>{area}</AreaItem>
