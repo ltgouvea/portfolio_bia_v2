@@ -1,13 +1,13 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Overdrive from 'react-overdrive';
-import styled from 'react-emotion';
+import React from "react";
+import Helmet from "react-helmet";
+import Img from "gatsby-image";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Overdrive from "react-overdrive";
+import styled from "react-emotion";
 
-import { Layout, ProjectHeader, ProjectPagination, SEO } from 'components';
-import config from '../../config/site';
+import { Layout, ProjectHeader, ProjectPagination, SEO } from "components";
+import config from "../../config/site";
 
 const OuterWrapper = styled.div`
   padding: 0 ${props => props.theme.contentPadding};
@@ -20,10 +20,56 @@ const InnerWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode, images: imgs } }) => {
-  const images = imgs.edges;
-  const project = postNode.frontmatter;
+const VideoWrapper = styled.div`
+  position: relative;
+  padding: 0 ${props => props.theme.contentPadding};
+  margin: -6rem auto 6rem auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
 
+const Project = ({
+  pageContext: { slug, prev, next },
+  data: { project: postNode, images: imgs }
+}) => {
+  if (imgs) {
+    const images = imgs.edges;
+    const project = postNode.frontmatter;
+
+    return (
+      <Layout>
+        <Helmet title={`${project.title} | ${config.siteTitle}`} />
+        <SEO postPath={slug} postNode={postNode} postSEO />
+        <ProjectHeader
+          avatar={config.avatar}
+          name={config.name}
+          date={project.date}
+          title={project.title}
+          areas={project.areas}
+          text={postNode.html}
+        />
+        <OuterWrapper>
+          <InnerWrapper>
+            <Overdrive id={`${slug}-cover`}>
+              <Img fluid={project.cover.childImageSharp.fluid} />
+            </Overdrive>
+            {images.map(image => (
+              <Img
+                key={image.node.childImageSharp.fluid.src}
+                fluid={image.node.childImageSharp.fluid}
+                style={{ margin: "2.75rem 0" }}
+              />
+            ))}
+          </InnerWrapper>
+          <ProjectPagination next={next} prev={prev} />
+        </OuterWrapper>
+      </Layout>
+    );
+  }
+
+  const project = postNode.frontmatter;
+  console.log(project);
   return (
     <Layout>
       <Helmet title={`${project.title} | ${config.siteTitle}`} />
@@ -38,21 +84,98 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
       />
       <OuterWrapper>
         <InnerWrapper>
-          <Overdrive id={`${slug}-cover`}>
-            <Img fluid={project.cover.childImageSharp.fluid} />
-          </Overdrive>
-          {images.map(image => (
-            <Img
-              key={image.node.childImageSharp.fluid.src}
-              fluid={image.node.childImageSharp.fluid}
-              style={{ margin: '2.75rem 0' }}
+          <VideoWrapper>
+            <p>
+              Lyric Video da música Goodbye - Lysergic Thoughts (2017). Stop motion em
+              massinha, criação, storyboard, animação e composição final
+            </p>
+            <iframe
+              title="goodbye"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/fQMHfgPFcsw"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
             />
-          ))}
+            <p>
+              Realização do evento “CineRecreio” oficinas de animação para o CEVAC
+              (Centro de Valorização da Criança) da cidade de Bauru (2017)
+            </p>
+            <iframe
+              title="cinerecreio"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/5YxSUv8Xscs"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
+            />
+            <p>
+              Amanara (2016). Roteiro e Captação de Som
+            </p>
+            <iframe
+              title="amanara"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/417ZGRfgaZk"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
+            />
+            <p>
+              Amanara (2016). Rotoscopia feita no photoshop
+            </p>
+            <iframe
+              title="amanara-rotoscopia"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/nnTOXRDJ15g"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
+            />
+            <p>
+              Cítrica (2017). Captação de áudio e câmera adicional
+            </p>
+            <iframe
+              title="citrica"
+              src="https://player.vimeo.com/video/208545785"
+              width="1000"
+              height="720"
+              frameBorder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowFullscreen
+            />
+            <p>
+              Documentário A Terra é Nossa! (2015). Operação de câmera
+            </p>
+            <iframe
+              title="terranossa"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/es1gzJIcjkk"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
+            />
+            <p>Chocolate (2014). Roteiro e Direção</p>
+            <iframe
+              title="chocolate"
+              width="1000"
+              height="720"
+              src="https://www.youtube.com/embed/wenIV4Ht_zk"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullscreen
+            />
+          </VideoWrapper>
         </InnerWrapper>
         <ProjectPagination next={next} prev={prev} />
       </OuterWrapper>
     </Layout>
-  );
+    );
 };
 
 export default Project;
@@ -61,54 +184,61 @@ Project.propTypes = {
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
     next: PropTypes.object,
-    prev: PropTypes.object,
+    prev: PropTypes.object
   }),
   data: PropTypes.shape({
     project: PropTypes.object.isRequired,
-    images: PropTypes.object.isRequired,
-  }).isRequired,
+    images: PropTypes.object.isRequired
+  }).isRequired
 };
 
 Project.defaultProps = {
   pageContext: PropTypes.shape({
     next: null,
-    prev: null,
-  }),
+    prev: null
+  })
 };
 
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!, $absolutePathRegex: String!, $absolutePathCover: String!) {
-    images: allFile(
-      filter: { absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }, extension: { eq: "jpg" } }
-    ) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
+query ProjectPostBySlug(
+  $slug: String!
+  $absolutePathRegex: String!
+  $absolutePathCover: String!
+) {
+  images: allFile(
+    filter: {
+      absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }
+      extension: { eq: "jpg" }
     }
-    project: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
-      frontmatter {
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-            resize(width: 800) {
-              src
-            }
+  ) {
+    edges {
+      node {
+        childImageSharp {
+          fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
-        date(formatString: "DD.MM.YYYY")
-        title
-        areas
       }
     }
   }
+  project: markdownRemark(fields: { slug: { eq: $slug } }) {
+    html
+    excerpt
+    frontmatter {
+      cover {
+        childImageSharp {
+          fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+          resize(width: 800) {
+            src
+          }
+        }
+      }
+      date(formatString: "DD.MM.YYYY")
+      title
+      areas
+    }
+  }
+}
 `;
