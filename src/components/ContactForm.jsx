@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ContactForm.css';
 import PropTypes from 'prop-types';
 
 class ContactFormDois extends Component {
@@ -29,27 +30,30 @@ class ContactFormDois extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
+    window.location.href = 'mailto:beatriz.montanhaur@gmail.com?subject=Contato Via Portfolio&body=' + this.state.mensagem;
     event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.name} onChange={this.handleName} />
-        </label>
-        <label>
-          Email:
-          <input type="text" value={this.state.email} onChange={this.handleEmail} />
-        </label>
-        <label>
-          Mensagem:
-          <textarea value={this.state.mensagem} onChange={this.handleMensagem} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className='form-wrapper'>
+        <hr />
+        <h1 id="contato">Contato</h1>
+        <form onSubmit={this.handleSubmit}>
+          <div className="col">
+            <label>
+              Nome
+            </label>
+            <input type="text" value={this.state.name} onChange={this.handleName} />
+            <label>
+              Email
+            </label>
+            <input type="text" value={this.state.email} onChange={this.handleEmail} />
+            <textarea value={this.state.mensagem} onChange={this.handleMensagem} placeholder="Digite uma mensagem..."/>
+            <button type="submit" value="Submit">Enviar</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

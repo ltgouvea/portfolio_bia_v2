@@ -8,6 +8,9 @@ import { SEO, Footer } from '.';
 import theme from '../../config/theme';
 
 injectGlobal`
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background: ${theme.colors.bg};
     color: ${theme.colors.color};
