@@ -69,6 +69,9 @@ const Header = ({ avatar, name, location, socialMedia }) => (
             {social.name}
           </a>
         ))}
+          <a key="Contato" href="#contato">
+            Contato
+          </a>
       </SocialMedia>
     </Content>
   </Wrapper>
