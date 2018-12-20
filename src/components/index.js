@@ -1,5 +1,5 @@
 import Card from './Card';
-import ContactForm from './ContactForm';
+import ContactForm from './ContactForm.jsx';
 import Footer from './Footer';
 import Header from './Header';
 import Layout from './Layout';
