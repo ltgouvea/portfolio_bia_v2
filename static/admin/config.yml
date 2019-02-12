@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+publish_mode: editorial_workflow
+media_folder: "images/uploads"
+collections:
+  - name: "projeto" # Used in routes, e.g., /admin/collections/blog
+    label: "Projeto" # Used in the UI
+    folder: "content/projects" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{categoria}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publicado Em", name: "date", widget: "datetime"}
+      - {label: "Capa", name: "cover", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+

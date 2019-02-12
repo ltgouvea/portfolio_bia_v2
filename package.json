@@ -29,6 +29,7 @@
     "gatsby-transformer-remark": "^2.1.11",
     "gatsby-transformer-sharp": "^2.1.7",
     "lodash": "^4.17.11",
+    "netlify-cms": "^2.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
