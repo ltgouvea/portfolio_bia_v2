@@ -16,4 +16,5 @@ collections:
       - {label: "Publicado Em", name: "date", widget: "datetime"}
       - {label: "Capa", name: "cover", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+    card: {type: "image", image: "image", text: "title"}
 
