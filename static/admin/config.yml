@@ -14,12 +14,10 @@ collections:
       - {label: "Categorias", name: "areas", widget: "list"}
       - {label: "Publicado Em", name: "date", widget: "datetime"}
       - {label: "Capa", name: "cover", widget: "image"}
-      - {
-          label: "Imagens",
-          name: "images",
-          widget: "image",
-          media_library:
-            config:
-              multiple: true,
-          }
+      - label: "Imagens"
+        name: "images"
+        widget: "image"
+        media_library:
+          config:
+            multiple: true,
 
