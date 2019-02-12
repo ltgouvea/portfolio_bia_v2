@@ -8,13 +8,11 @@ collections:
     label: "Projeto" # Used in the UI
     folder: "content/projects" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{categoria}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Categoria", name: "categoria", widget: "string"}
+      - {label: "Categorias", name: "areas", widget: "list"}
       - {label: "Publicado Em", name: "date", widget: "datetime"}
       - {label: "Capa", name: "cover", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
-    card: {type: "image", image: "image", text: "title"}
+      - {label: "Imagens", name: "images", widget: "image", media_library: config:  multiple: true}
 
