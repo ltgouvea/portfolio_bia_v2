@@ -4,7 +4,7 @@ backend:
 publish_mode: editorial_workflow
 media_folder: "images/uploads"
 collections:
-  - name: "projetos" # Used in routes, e.g., /admin/collections/blog
+  - name: "{{slug}}" # Used in routes, e.g., /admin/collections/blog
     label: "Projeto" # Used in the UI
     folder: "content/projects" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
