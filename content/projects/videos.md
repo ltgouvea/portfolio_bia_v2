@@ -1,5 +1,5 @@
 ---
-cover: ../../images/uploads/doc2.jpg
+cover: /images/uploads/doc2.jpg
 date: "2017-12-01"
 title: "Videos"
 areas:

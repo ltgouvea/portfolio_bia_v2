@@ -28,13 +28,19 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/images`,
+        path: `${__dirname}/static/images/`,
       },
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'images'
+            },
+          },
           {
             resolve: 'gatsby-remark-external-links',
             options: {

@@ -52,14 +52,10 @@ const Project = ({
         <OuterWrapper>
           <InnerWrapper>
             <Overdrive id={`${slug}-cover`}>
-              <Img fluid={project.cover.childImageSharp.fluid} />
+            <img src={project.cover} style={{ margin: '2.75rem 0' }} />
             </Overdrive>
             {images.map(image => (
-              <Img
-                key={image.childImageSharp.id}
-                fluid={image.childImageSharp.fluid}
-                style={{ margin: "2.75rem 0" }}
-              />
+            <img src={image} key={image} style={{ margin: '2.75rem 0' }} />
             ))}
           </InnerWrapper>
           <ProjectPagination next={next} prev={prev} />
@@ -198,27 +194,8 @@ export const pageQuery = graphql`
       html
       excerpt
       frontmatter {
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-            resize(width: 800) {
-              src
-            }
-          }
-        }
-        images {
-          childImageSharp {
-            id
-            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-            resize(width: 800) {
-              src
-            }
-          }
-        }
+        cover
+        images
         date(formatString: "DD.MM.YYYY")
         title
         areas

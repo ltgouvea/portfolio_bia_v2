@@ -1,7 +1,9 @@
 const path = require('path');
 const _ = require('lodash');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.onCreateNode = ({ node, actions }) => {
+  fmImagesToRelative(node);
   const { createNodeField } = actions;
   let slug;
   if (node.internal.type === 'MarkdownRemark') {
@@ -16,10 +18,6 @@ exports.onCreateNode = ({ node, actions }) => {
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
-    }
-    if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'images')) {
-      const images = node.frontmatter.images;
-      images.map(image => '../../' + image);
     }
     createNodeField({ node, name: 'slug', value: slug });
   }
@@ -42,9 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
                 frontmatter {
                   title
-                  cover {
-                    absolutePath
-                  }
+                  cover
                 }
               }
             }

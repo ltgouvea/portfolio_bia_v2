@@ -40,7 +40,7 @@ const Index = ({
         {edges.map(project => (
           <Card
             title={project.node.frontmatter.title}
-            cover={project.node.frontmatter.cover.childImageSharp.fluid}
+            cover={project.node.frontmatter.cover}
             path={project.node.fields.slug}
             areas={project.node.frontmatter.areas}
             slug={project.node.fields.slug}
@@ -72,13 +72,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 850, quality: 90, traceSVG: { color: "#328bff" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
+            cover
             date(formatString: "DD.MM.YYYY")
             title
             areas

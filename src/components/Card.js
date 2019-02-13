@@ -113,7 +113,7 @@ const Card = ({ path, cover, areas, title, slug }) => (
   <Overdrive id={`${slug}-cover`}>
     <CardItem to={path}>
       <Cover>
-        <Img sizes={cover} />
+        <img src={cover} alt="" />
       </Cover>
       <Header>
         <Areas>
@@ -135,7 +135,7 @@ export default Card;
 
 Card.propTypes = {
   path: PropTypes.string.isRequired,
-  cover: PropTypes.object.isRequired,
+  cover: PropTypes.string.isRequired,
   areas: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
