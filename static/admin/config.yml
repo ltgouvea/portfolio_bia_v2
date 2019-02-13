@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
+public_folder: "../../images/uploads"
 media_folder: "images/uploads"
 collections:
   - name: "projetos" # Used in routes, e.g., /admin/collections/blog
@@ -12,7 +13,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Categorias", name: "areas", widget: "list"}
-      - {label: "Publicado Em", name: "date", widget: "datetime"}
+      - {label: "Publicado Em", name: "date", widget: "date"}
       - {label: "Capa", name: "cover", widget: "image"}
       - label: "Imagens"
         name: "images"
