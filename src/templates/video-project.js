@@ -1,11 +1,11 @@
-import React from "react";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import styled from "react-emotion";
+import React from 'react';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import styled from 'react-emotion';
 
-import { Layout, ProjectHeader, ProjectPagination, SEO } from "components";
-import config from "../../config/site";
+import { Layout, ProjectHeader, ProjectPagination, SEO } from 'components';
+import config from '../../config/site';
 
 const OuterWrapper = styled.div`
   padding: 0 ${props => props.theme.contentPadding};
@@ -32,15 +32,16 @@ const VideoContentWrapper = styled.div``;
 const Video = ({ title, description, link }) => {
   return (
     <VideoContentWrapper>
-      <p> {{ description }} </p>
+      <p> {`${description}`} </p>
       <iframe
         title={`${title}`}
+        key={`${title}`}
         width="1000"
         height="720"
         src={`${link}`}
         frameBorder="0"
         allow="autoplay; encrypted-media"
-        allowFullscreen
+        allowFullScreen
       />
     </VideoContentWrapper>
   );
@@ -75,7 +76,9 @@ const VideoProject = ({ pageContext: { slug, prev, next }, data: { project: post
       <OuterWrapper>
         <InnerWrapper>
           <VideoWrapper>
-
+            {project.videos.map(video => (
+              <Video key={video.title} title={video.title} link={video.link} description={video.description} />
+            ))}
           </VideoWrapper>
         </InnerWrapper>
         <ProjectPagination next={next} prev={prev} />
@@ -114,7 +117,11 @@ export const pageQuery = graphql`
         date(formatString: "DD.MM.YYYY")
         title
         areas
-        videos
+        videos {
+          link
+          title
+          description
+        }
       }
     }
   }
