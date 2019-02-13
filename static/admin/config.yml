@@ -16,8 +16,6 @@ collections:
       - {label: "Capa", name: "cover", widget: "image"}
       - label: "Imagens"
         name: "images"
-        widget: "image"
-        media_library:
-          config:
-            multiple: true,
+        widget: "list"
+        field: {label: Image, name: image, widget: image}
 
