@@ -109,14 +109,13 @@ const Name = styled.h2`
   margin-bottom: 0;
 `;
 
-const Card = ({ path, cover, date, areas, title, slug }) => (
+const Card = ({ path, cover, areas, title, slug }) => (
   <Overdrive id={`${slug}-cover`}>
     <CardItem to={path}>
       <Cover>
         <Img sizes={cover} />
       </Cover>
       <Header>
-        {/* <DateWrapper>{date}</DateWrapper> */}
         <Areas>
           {areas.map(area => (
             <AreaItem key={area}>{area}</AreaItem>
@@ -137,7 +136,6 @@ export default Card;
 Card.propTypes = {
   path: PropTypes.string.isRequired,
   cover: PropTypes.object.isRequired,
-  date: PropTypes.string.isRequired,
   areas: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,

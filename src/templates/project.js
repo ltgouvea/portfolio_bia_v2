@@ -31,10 +31,10 @@ const VideoWrapper = styled.div`
 
 const Project = ({
   pageContext: { slug, prev, next },
-  data: { project: postNode, images: imgs }
+  data: { project: postNode }
 }) => {
-  if (imgs) {
-    const images = imgs.edges;
+  if (postNode.frontmatter.images) {
+    const images = postNode.frontmatter.images;
     const project = postNode.frontmatter;
 
     return (
@@ -56,8 +56,8 @@ const Project = ({
             </Overdrive>
             {images.map(image => (
               <Img
-                key={image.node.childImageSharp.fluid.src}
-                fluid={image.node.childImageSharp.fluid}
+                key={image.childImageSharp.id}
+                fluid={image.childImageSharp.fluid}
                 style={{ margin: "2.75rem 0" }}
               />
             ))}
@@ -180,7 +180,6 @@ Project.propTypes = {
   }),
   data: PropTypes.shape({
     project: PropTypes.object.isRequired,
-    images: PropTypes.object.isRequired
   }).isRequired
 };
 
@@ -194,31 +193,24 @@ Project.defaultProps = {
 export const pageQuery = graphql`
   query ProjectPostBySlug(
     $slug: String!
-    $absolutePathRegex: String!
-    $absolutePathCover: String!
   ) {
-    images: allFile(
-      filter: {
-        absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }
-        extension: { eq: "jpg" }
-      }
-    ) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
-    }
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
       frontmatter {
         cover {
           childImageSharp {
+            fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+            resize(width: 800) {
+              src
+            }
+          }
+        }
+        images {
+          childImageSharp {
+            id
             fluid(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }

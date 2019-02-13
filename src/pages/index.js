@@ -39,7 +39,6 @@ const Index = ({
       <Grid>
         {edges.map(project => (
           <Card
-            date={project.node.frontmatter.date}
             title={project.node.frontmatter.title}
             cover={project.node.frontmatter.cover.childImageSharp.fluid}
             path={project.node.fields.slug}
