@@ -27,6 +27,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'videos',
+        path: `${__dirname}/content/videos`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'images',
         path: `${__dirname}/static/images/`,
       },
@@ -38,7 +45,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-relative-images',
             options: {
-              name: 'images'
+              name: 'images',
             },
           },
           {

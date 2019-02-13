@@ -28,10 +28,31 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const projectPage = path.resolve('src/templates/project.js');
+    const videoProjectPage = path.resolve('src/templates/video-project.js');
     resolve(
       graphql(`
         {
-          projects: allMarkdownRemark {
+          projects: allMarkdownRemark(
+            sort: { fields: [frontmatter___date], order: DESC }
+            filter: { fileAbsolutePath: { regex: "/projects/" } }
+          ) {
+            edges {
+              node {
+                fileAbsolutePath
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  cover
+                }
+              }
+            }
+          }
+          videos: allMarkdownRemark(
+            sort: { fields: [frontmatter___date], order: DESC }
+            filter: { fileAbsolutePath: { regex: "/videos/" } }
+          ) {
             edges {
               node {
                 fileAbsolutePath
@@ -54,6 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const projectPosts = result.data.projects.edges;
+        const videoProjectPosts = result.data.videos.edges;
 
         projectPosts.forEach((edge, index) => {
           const next = index === 0 ? null : projectPosts[index - 1].node;
@@ -62,6 +84,21 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: edge.node.fields.slug,
             component: projectPage,
+            context: {
+              slug: edge.node.fields.slug,
+              prev,
+              next,
+            },
+          });
+        });
+
+        videoProjectPosts.forEach((edge, index) => {
+          const next = index === 0 ? null : projectPosts[index - 1].node;
+          const prev = index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
+
+          createPage({
+            path: edge.node.fields.slug,
+            component: videoProjectPage,
             context: {
               slug: edge.node.fields.slug,
               prev,

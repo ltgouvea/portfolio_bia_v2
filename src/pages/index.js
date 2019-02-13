@@ -28,16 +28,12 @@ const Content = styled.div`
   position: relative;
 `;
 
-const Index = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => (
+const Index = ({ data: { projects, videos } }) => (
   <Layout>
     <Header avatar={config.avatar} name={config.name} location={config.location} socialMedia={config.socialMedia} />
     <Content>
       <Grid>
-        {edges.map(project => (
+        {projects.edges.map(project => (
           <Card
             title={project.node.frontmatter.title}
             cover={project.node.frontmatter.cover}
@@ -45,6 +41,16 @@ const Index = ({
             areas={project.node.frontmatter.areas}
             slug={project.node.fields.slug}
             key={project.node.fields.slug}
+          />
+        ))}
+        {videos.edges.map(video => (
+          <Card
+            title={video.node.frontmatter.title}
+            cover={video.node.frontmatter.cover}
+            path={video.node.fields.slug}
+            areas={video.node.frontmatter.areas}
+            slug={video.node.fields.slug}
+            key={video.node.fields.slug}
           />
         ))}
       </Grid>
@@ -57,7 +63,10 @@ export default Index;
 
 Index.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    projects: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }),
+    videos: PropTypes.shape({
       edges: PropTypes.array.isRequired,
     }),
   }).isRequired,
@@ -65,7 +74,28 @@ Index.propTypes = {
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    projects: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            cover
+            date(formatString: "DD.MM.YYYY")
+            title
+            areas
+          }
+        }
+      }
+    }
+    videos: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/videos/" } }
+    ) {
       edges {
         node {
           fields {
