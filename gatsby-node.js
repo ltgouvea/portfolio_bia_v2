@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, actions }) => {
     ) {
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
     }
-    if (Object.prototype.hasOwnProperty.call(node, 'images')) {
+    if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'images')) {
       const images = node.frontmatter.images;
       images.map(image => '../../' + image);
     }
