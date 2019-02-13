@@ -5,8 +5,8 @@ areas:
   - Gatos
   - Vida
 date: 2019-02-13T02:06:52.303Z
-cover: /images/uploads/jenifer-meme-twitter.jpeg
+cover: /images/uploads/academia.jpg
 images:
-  - /images/uploads/brhue.jpg
+  - /images/uploads/branquinha.jpg
 ---
 
