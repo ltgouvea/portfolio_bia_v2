@@ -17,6 +17,10 @@ exports.onCreateNode = ({ node, actions }) => {
     ) {
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
     }
+    if (Object.prototype.hasOwnProperty.call(node, 'images')) {
+      const images = node.frontmatter.images;
+      images.map(image => '../../' + image);
+    }
     createNodeField({ node, name: 'slug', value: slug });
   }
 };
