@@ -4,7 +4,7 @@ areas:
   - Roteiro
   - Som Direto
   - Produção
-date: '2017-12-01'
+date: 2019-06-01T03:00:00.000Z
 cover: /images/uploads/em_produção_chique_demais.jpg
 videos:
   - description: >-
