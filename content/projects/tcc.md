@@ -14,7 +14,8 @@ images:
   - /images/uploads/circulo000.jpg
   - /images/uploads/print-contorno.jpg
   - /images/uploads/print-contorno_2.jpg
-  - /images/uploads/personagem-principal-pintura.jpg
+  - /images/uploads/pinturaprincipal.jpg
+  - /images/uploads/pinturaprincipal2.jpg
   - /images/uploads/bg1.jpg
   - /images/uploads/bg2.jpg
   - /images/uploads/fundoclaro.jpg
