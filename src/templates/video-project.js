@@ -33,7 +33,15 @@ const VideoWrapper = styled.div`
   }
 `;
 
-const VideoContentWrapper = styled.div``;
+const VideoContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .video-frame {
+    width: 1000px;
+    height: 720px;
+  }
+`;
 
 const Video = ({ title, description, link }) => {
   return (
@@ -42,8 +50,7 @@ const Video = ({ title, description, link }) => {
       <iframe
         title={`${title}`}
         key={`${title}`}
-        width="1000"
-        height="720"
+        className="video-frame"
         src={`${link}`}
         frameBorder="0"
         allow="autoplay; encrypted-media"
