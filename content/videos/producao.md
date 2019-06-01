@@ -20,7 +20,7 @@ videos:
   - description: Documentário "A Terra é Nossa!"
     link: 'https://www.youtube.com/embed/es1gzJIcjkk'
     title: A Terra é Nossa!
-  - description: Curta metragem Chocolate.
+  - description: Roteiro e direção. Curta metragem Chocolate. Realizado em 2014.
     link: 'https://www.youtube.com/embed/wenIV4Ht_zk'
     title: Chocolate
 ---
