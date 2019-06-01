@@ -93,8 +93,8 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         videoProjectPosts.forEach((edge, index) => {
-          const next = index === 0 ? null : projectPosts[index - 1].node;
-          const prev = index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
+          const next = index === 0 ? null : videoProjectPosts[index - 1].node;
+          const prev = index === videoProjectPosts.length - 1 ? null : videoProjectPosts[index + 1].node;
 
           createPage({
             path: edge.node.fields.slug,
