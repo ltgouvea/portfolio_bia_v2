@@ -2,8 +2,9 @@
 title: Produções Audiovisuais
 areas:
   - Roteiro
-  - Som Direto
   - Produção
+  - Direção
+  - Som direto
 date: 2019-06-01T03:00:00.000Z
 cover: /images/uploads/em_produção_chique_demais.jpg
 videos:
