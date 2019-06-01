@@ -1,12 +1,11 @@
 ---
-title: Produção
+title: Produções Audiovisuais
 areas:
-  - Animações
-  - Quadro a Quadro
-  - Rotoscopia
-  - Audiovisual
-date: '2017-12-01'
-cover: /images/uploads/rotoscopia_amanara.jpg
+  - Roteiro
+  - Som Direto
+  - Produção
+date: 2019-06-01T03:00:00.000Z
+cover: /images/uploads/em_produção_chique_demais.jpg
 videos:
   - description: >-
       Roteiro, produção, direção de arte e montagem. Videoclipe da música "It
