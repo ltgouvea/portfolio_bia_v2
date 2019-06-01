@@ -20,7 +20,6 @@ images:
   - /images/uploads/bg2.jpg
   - /images/uploads/bg0.jpg
   - /images/uploads/bg0.2.jpg
-  - /images/uploads/bg0.2.jpg
   - /images/uploads/fundoclaro.jpg
   - /images/uploads/principal-com-cenário.jpg
 ---
