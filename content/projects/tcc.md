@@ -1,7 +1,7 @@
 ---
 title: TCC - As Brumas
 areas:
-  - Animações
+  - Animação
   - Rotoscopia
   - Audiovisual
   - Roteiro
