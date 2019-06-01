@@ -25,6 +25,12 @@ const VideoWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+
+  .video-description {
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+  }
 `;
 
 const VideoContentWrapper = styled.div``;
@@ -32,7 +38,7 @@ const VideoContentWrapper = styled.div``;
 const Video = ({ title, description, link }) => {
   return (
     <VideoContentWrapper>
-      <p> {`${description}`} </p>
+      <p className="video-description"> {`${description}`} </p>
       <iframe
         title={`${title}`}
         key={`${title}`}
