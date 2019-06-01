@@ -8,12 +8,6 @@ areas:
 date: '2017-12-01'
 cover: /images/uploads/rotoscopia_amanara.jpg
 videos:
-  - description: >-
-      Roteiro, storyboard, animação e montagem. Videoclipe utilizando massinha e
-      técnica de stop motion para a música "Goodbye" da banda Lysergic Thoughts.
-      Realizado em 2017.
-    link: 'https://www.youtube.com/embed/fQMHfgPFcsw'
-    title: Lysergic Thoughts - Goodbye
   - description: CEVAC - Centro de Valorização da Criança
     link: 'https://www.youtube.com/embed/5YxSUv8Xscs'
     title: CEVAC - Centro de Valorização da Criança
