@@ -9,23 +9,27 @@ date: '2017-12-01'
 cover: /images/uploads/rotoscopia_amanara.jpg
 videos:
   - description: >-
-      Videoclipe quadro a quadro para a música Goodbye da banda Lysergic
-      Thoughts
-    link: 'https://www.youtube.com/embed/fQMHfgPFcsw'
-    title: Lysergic Thoughts - Goodbye
-  - description: CEVAC - Centro de Valorização da Criança
-    link: 'https://www.youtube.com/embed/5YxSUv8Xscs'
-    title: CEVAC - Centro de Valorização da Criança
-  - description: Curta Amanara. Animação em rotoscopia
+      Roteiro, produção, direção de arte e montagem. Videoclipe da música "It
+      Hurts" da banda Young Lungs. Realizado em 2018.
+    link: 'https://www.youtube.com/embed/fL509bb48Xc'
+    title: It Hurts
+  - description: >-
+      Roteiro, animação e som direto. Curta que retrata a lenda indígena de
+      Ceuci para temas atuais. Realizado em 2017.
     link: 'https://www.youtube.com/embed/417ZGRfgaZk'
     title: Amanara
-  - description: Curta metragem cítrica. TCC de Marjory Kumabe
+  - description: >-
+      Som direto e câmera extra. Curta metragem experimental dirigido por
+      Marjory Kumabe. Realizado em 2017.
     link: 'https://player.vimeo.com/video/208545785'
     title: Cítrica
-  - description: Documentário "A Terra é Nossa!"
+  - description: >-
+      Operação de câmera. Documentário "A Terra é Nossa!" dirigido por Priscila
+      Beal, que conta a história dos assentados do Horto de Aimorés, localizado
+      entre as cidades de Bauru e Pederneiras – SP. Realizado em 2015.
     link: 'https://www.youtube.com/embed/es1gzJIcjkk'
     title: A Terra é Nossa!
-  - description: Curta metragem Chocolate.
+  - description: Roteiro e direção. Curta metragem Chocolate. Realizado em 2014.
     link: 'https://www.youtube.com/embed/wenIV4Ht_zk'
     title: Chocolate
 ---
