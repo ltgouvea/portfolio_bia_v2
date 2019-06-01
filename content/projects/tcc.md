@@ -4,8 +4,6 @@ areas:
   - Animação
   - Rotoscopia
   - Roteiro
-  - Direção
-  - Produção
 date: 2018-07-24T03:00:00.000Z
 cover: /images/uploads/imagem_final.jpg
 images:
