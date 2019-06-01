@@ -1,5 +1,9 @@
 ---
 title: Animações
+areas:
+  - Animação 2D
+  - Rotoscopia
+  - Stop Motion
 date: 2019-06-01T20:14:54.088Z
 cover: /images/uploads/framedistopia4.png
 videos:
