@@ -3,11 +3,10 @@ title: TCC - As Brumas
 areas:
   - Animação
   - Rotoscopia
-  - Audiovisual
   - Roteiro
   - Direção
   - Produção
-date: '2017-12-01'
+date: 2018-07-24T03:00:00.000Z
 cover: /images/uploads/imagem_final.jpg
 images:
   - /images/uploads/img_4120_tentei.jpg
